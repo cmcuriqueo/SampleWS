@@ -1,8 +1,5 @@
 <?php
-/** 
- * @web http://www.jc-mouse.net/
- * @author jc mouse
- */
+
 class PeopleDB {
     
     protected $mysqli;
