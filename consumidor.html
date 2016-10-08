@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Test consumir WebService</title>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <script type="text/javascript">
+    
+
+      
+    // Llamada al webservice
+    function callWebService()
+    {
+
+		(function() {
+		  var API = "http://localhost/SampleWS?action=peoples";
+		  $.getJSON( API, {
+		    tags: "mount rainier",
+		    tagmode: "any",
+		    format: "json"
+		  })
+		    .done(function( data ) {
+		      $.each( data, function( i, item ) {
+		        $("#resultado_json").append("Id: "+item.id+" - Nombre: "+item.name+"<br>");
+		        if ( i === 2 ) {
+		          return false;
+		        }
+		      });
+		    });
+		})();
+
+	}
+  </script>
+  
+</head>
+
+<body>
+
+<button type="button" onclick="javascript:callWebService();">Llamar a WS</button>
+
+<div id="resultado_json"></div>
+
+</body>
+</html>
